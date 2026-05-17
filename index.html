@@ -1,27 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>.</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            font-size: 4rem;
-            text-transform: uppercase;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>un lys</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+/* PASSWORD SCREEN */
+#passwordScreen{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(-45deg,#ff758c,#ff7eb3,#ffb6c1,#ffc3a0);
+    background-size:400% 400%;
+    animation:gradientBG 10s ease infinite;
+}
+
+#passwordScreen h2{
+    color:white;
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+#passwordScreen input{
+    padding:12px;
+    width:280px;
+    border:none;
+    border-radius:12px;
+    margin-bottom:15px;
+    font-size:16px;
+}
+
+#passwordScreen button{
+    padding:14px 28px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff4f81;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ---------- FIRST PAGE ---------- */
+#page1{
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#d08112,#c2354a,#ffc3a0);
+    background-size:400% 400%;
+    animation:gradientBG 10s ease infinite;
+    position:relative;
+}
+
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    text-align:center;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.2);
+    width:90%;
+    max-width:700px;
+    z-index:10;
+    animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.container h1{
+    font-size:3rem;
+    color:white;
+    margin-bottom:20px;
+}
+
+#message{
+    font-size:1.3rem;
+    color:white;
+    min-height:120px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+button{
+    padding:15px 30px;
+    border:none;
+    border-radius:50px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.yes{
+    background:white;
+    color:#ff4f81;
+}
+
+.yes:hover{
+    transform:scale(1.1);
+}
+
+.no{
+    background:#ff4f81;
+    color:white;
+    position:relative;
+}
+
+.heart{
+    position:absolute;
+    color:rgba(255,255,255,0.8);
+    animation:floatHeart linear infinite;
+}
+
+@keyframes floatHeart{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+
+/* SECOND PAGE */
+#page2{
+    display:none;
+    background:linear-gradient(180deg,#2b0d16 0%,#4b1d2c 35%,#8d4a60 70%,#e7c8cf 100%);
+    color:#f8ecef;
+    min-height:100vh;
+    position:relative;
+}
+
+#particles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
+}
+
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:rgba(255,220,225,0.4);
+    border-radius:50%;
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-20vh);
+        opacity:0;
+    }
+}
+
+section{
+    position:relative;
+    z-index:2;
+    padding:100px 20px;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:4.5rem;
+    color:#ffe9ee;
+}
+.hero p{
+    font-size:1.4rem;
+    max-width:900px;
+    line-height:1.8;
+    min-height:120px;
+    color:#f4d8de;
+}
+
+.scroll-btn{
+    margin-top:35px;
+    padding:16px 34px;
+    background:#c26d85;
+    border:none;
+    border-radius:50px;
+    color:white;
+    cursor:pointer;
+}
+
+.title{
+    text-align:center;
+    font-size:2.8rem;
+    margin-bottom:50px;
+}
+
+.timeline{
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline-item{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    padding:28px;
+    border-left:6px solid #f1a6b7;
+    border-radius:18px;
+    margin:20px 0;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.letter{
+    max-width:950px;
+    margin:auto;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(14px);
+    padding:50px;
+    border-radius:24px;
+    line-height:2;
+    font-size:1.15rem;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.highlight{
+    color:#ffd2dc;
+    font-weight:bold;
+}
+
+.show{
+    opacity:1 !important;
+    transform:translateY(0) !important;
+}
+
+.fade-out{
+    animation:fadeOut 1s forwards;
+}
+
+@keyframes fadeOut{
+    to{
+        opacity:0;
+        transform:scale(1.05);
+    }
+}
+
+@media(max-width:768px){
+    .container h1{font-size:2rem;}
+    #message{font-size:1rem;}
+    .hero h1{font-size:2.5rem;}
+    .hero p{font-size:1.1rem;}
+    .letter{padding:30px;}
+}
+</style>
 </head>
+
 <body>
-     <br>
-<p>Hello Mother</p>
-</br>
+
+<div id="passwordScreen">
+    <h2>Enter Password </h2>
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <button onclick="checkPassword()">Open</button>
+    <p id="error" style="color:white;margin-top:15px;"></p>
+</div>
+
+<div id="mainWebsite" style="display:none;">
+
+<div id="page1">
+    <div class="container">
+        <h1>I'm Really Sorry ❤️</h1>
+        <div id="message"></div>
+
+        <div class="buttons">
+            <button class="yes" onclick="forgive()">Yes, I Forgive You ❤️</button>
+            <button class="no" id="noBtn">No 😒</button>
+        </div>
+    </div>
+</div>
+<div id="page2">
+    <div id="particles"></div>
+
+    <section class="hero">
+        <h1>For Lakshita S N</h1>
+        <p id="typewriter"></p>
+        <button class="scroll-btn" onclick="document.getElementById('timeline').scrollIntoView()">
+            Read What I Owe You
+        </button>
+    </section>
+
+    <section id="timeline">
+        <h2 class="title">US (There are not just dates for me)</h2>
+
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <b>17 June 2018</b><br>
+                The first time I admired you.
+            </div>
+
+            <div class="timeline-item reveal">
+                <b>24 July 2025</b><br>
+                The day you came to me and hugged me like a child.
+            </div>
+
+            <div class="timeline-item reveal">
+                <b>1 August 2025</b><br>
+                The day you trusted me with all of you.
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="letter reveal">
+            <h2 class="title">What I Need To Say</h2>
+
+            <p>Lakshita,</p><br>
+
+            <p>
+                This is not something I made to romanticize my mistakes.
+                This exists because a simple message felt too small.
+            </p><br>
+
+            <p>
+                I am sorry for <span class="highlight">not communicating earlier.</span>
+                I am sorry for <span class="highlight">messing things around.</span>
+                I am sorry for <span class="highlight">leaving you alone.</span>
+            </p><br>
+
+            <p>
+                You deserved communication.
+                You deserved reassurance.
+                You deserved better from me.
+            </p><br>
+
+            <p>
+                Can you give me a chance to explain honestly.
+            </p><br>
+
+            <p>--K M</p>
+        </div>
+    </section>
+
+</div>
+<script>
+function checkPassword(){
+    const correctPassword = "170618"; // CHANGE THIS
+    const enteredPassword = document.getElementById("passwordInput").value;
+
+    if(enteredPassword === correctPassword){
+        document.getElementById("passwordScreen").style.display = "none";
+        document.getElementById("mainWebsite").style.display = "block";
+        typeWriter1();
+    } else {
+        document.getElementById("error").innerText = "Wrong password ";
+    }
+}
+
+const text1 = "I know I made a mistake, and I truly regret hurting you. You mean so much to me. ❤️";
+let i = 0;
+
+function typeWriter1(){
+    if(i < text1.length){
+        document.getElementById("message").innerHTML += text1.charAt(i);
+        i++;
+        setTimeout(typeWriter1, 40);
+    }
+}
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 150);
+    const y = Math.random() * (window.innerHeight - 100);
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+
+function forgive(){
+    document.getElementById("page1").classList.add("fade-out");
+
+    setTimeout(() => {
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("page2").style.display = "block";
+        startSecondPage();
+        window.scrollTo(0,0);
+    }, 900);
+}
+
+function startSecondPage(){
+    const text2 = "Some mistakes are too heavy for a simple text message. So I made this because honesty was overdue.";
+    let j = 0;
+
+    function typeWriter2(){
+        if(j < text2.length){
+            document.getElementById("typewriter").innerHTML += text2.charAt(j);
+            j++;
+            setTimeout(typeWriter2, 45);
+        }
+    }
+
+    typeWriter2();
+
+    const particles = document.getElementById("particles");
+
+    for(let k=0;k<80;k++){
+        let particle = document.createElement("div");
+        particle.classList.add("particle");
+        particle.style.left = Math.random()*100 + "%";
+        particle.style.animationDuration = (8 + Math.random()*10) + "s";
+        particle.style.animationDelay = Math.random()*5 + "s";
+        particles.appendChild(particle);
+    }
+
+    const observer = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+            }
+        });
+    });
+
+    document.querySelectorAll(".reveal").forEach(el=>{
+        observer.observe(el);
+    });
+}
+</script>
+
+</div>
 </body>
 </html>
