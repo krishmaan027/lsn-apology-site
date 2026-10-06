@@ -1,12 +1,144 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L S N </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>L S N</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Login Page */
+        #loginPage {
+            text-align: center;
+        }
+
+        #loginPage h2 {
+            margin-bottom: 25px;
+            font-weight: normal;
+        }
+
+        input {
+            width: 250px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            background: white;
+            color: black;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ddd;
+        }
+
+        #error {
+            color: #ff4d4d;
+            margin-top: 15px;
+            display: none;
+        }
+
+        /* Main Website */
+        #mainPage {
+            display: none;
+            text-align: center;
+        }
+
+        #mainPage h1 {
+            font-size: 45px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
 <body>
-    <h1>
-        All that was for nothing?
-    </h1>
+
+    <!-- PASSWORD PAGE -->
+    <div id="loginPage">
+
+        <h2>Enter Password</h2>
+
+        <input 
+            type="password" 
+            id="password"
+            placeholder="Password"
+        >
+
+        <br>
+
+        <button onclick="checkPassword()">
+            Enter
+        </button>
+
+        <p id="error">Wrong password.</p>
+
+    </div>
+
+
+    <!-- MAIN WEBSITE -->
+    <div id="mainPage">
+
+        <h1>
+            I just don't know lakshita why i can't be over those things, why i am not able to trust you again , i am just so worried ki mera dil fir tut jaega 
+            and i am so scared , and at the same time i am so in love with you that i just sometimes feel like tumhare bina mera kya hoga , nhi reh skta tumhare bina ab , i really want to marry you.
+            Ye trust issues itna jyda badh chuka h , yk aj mai just soke utha and bhaiya bole vo or uski dost suhani kisi daksh ke bare me bat kr rhe the , maine unhe us din bohot confidently bola ki aisa nhi ho skta
+            ap age se kuch mat puchna usse but ab lakshita har bat ke bad ek what if reh jata h ki kya pta vo sab chiche tumhare ander ab bhi ho, kya pta tumhe pichli bar ki trh ab bhi mujhse kuch nhi..., idk lakshita i just don't
+            mai kya kru mar rha hu ander se, samajh nhi aa rha kya kru, nikal do mujhe isse , iss trust issue se , please, i love you.
+        </h1>
+
+    </div>
+
+
+    <script>
+
+        function checkPassword() {
+
+            const password = document.getElementById("password").value;
+
+            // CHANGE YOUR PASSWORD HERE
+            const correctPassword = "0028";
+
+            if (password === correctPassword) {
+
+                document.getElementById("loginPage").style.display = "none";
+
+                document.getElementById("mainPage").style.display = "block";
+
+            } else {
+
+                document.getElementById("error").style.display = "block";
+
+            }
+        }
+
+    </script>
+
 </body>
 </html>
