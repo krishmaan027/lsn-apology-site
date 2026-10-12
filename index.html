@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,22 +28,30 @@
             margin: 0 auto;
         }
 
+        /* Main Heading */
         .header {
             text-align: center;
             margin-bottom: 40px;
         }
 
         .header h1 {
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 400;
-            letter-spacing: 5px;
+            letter-spacing: 1px;
+            line-height: 1.5;
             margin-bottom: 12px;
+            color: #f5f5f5;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            text-wrap: balance;
         }
 
         .header .subtitle {
             color: #999;
             font-size: 13px;
             letter-spacing: 3px;
+            margin-top: 18px;
         }
 
         .divider {
@@ -53,6 +61,7 @@
             margin: 25px auto 0;
         }
 
+        /* Message Cards */
         .message-card {
             background: #191919;
             border: 1px solid #2b2b2b;
@@ -80,6 +89,7 @@
             white-space: pre-line;
         }
 
+        /* Continuation Message */
         .continuation {
             color: #999 !important;
             font-size: 14px !important;
@@ -87,22 +97,25 @@
             font-style: italic;
         }
 
+        /* Footer */
         footer {
             text-align: center;
             color: #666;
             font-size: 12px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-top: 40px;
         }
 
+        /* Mobile Responsive */
         @media (max-width: 600px) {
             body {
                 padding: 35px 16px;
             }
 
             .header h1 {
-                font-size: 32px;
-                letter-spacing: 4px;
+                font-size: 28px;
+                letter-spacing: 0.5px;
+                line-height: 1.5;
             }
 
             .message-card {
@@ -121,13 +134,23 @@
 
     <main id="mainPage">
 
+        <!-- Main Heading -->
         <header class="header">
-            <h1>12/10/26</h1>
+
+            <h1>
+                The price of loving someone very much
+                is never loving again
+            </h1>
+
             <p class="subtitle">L S N</p>
+
             <div class="divider"></div>
+
         </header>
 
+        <!-- First Section -->
         <section class="message-card">
+
             <h2>What I wanted to say</h2>
 
             <p>tumne kha tha ki krish mai agar overethink krlu kbhi
@@ -136,9 +159,12 @@ niks me vhi kiya saturday ko and agar aj mujhe jrurat
 thi us explanation ki to krish mai 4 mahine se sirf tumhe
 yhi prove kr rhi hu ki mai loyal hu, trust me, chlo hum
 to the hi raavan apko ram mil jae</p>
+
         </section>
 
+        <!-- Second Section -->
         <section class="message-card">
+
             <h2>And then, today...</h2>
 
             <p>i love you and i really thought today too that mai nhi
@@ -146,9 +172,13 @@ reh skta uske bina vo bhi nhi reh paegi and after just
 2 min i get to see, she followed every guy whom she
 unfollowed when i said ki i don't believe in naam ke
 bhai bhen and she said ok i got you its enough and
-after seeing this,</p> 
+after seeing this,</p>
+
         </section>
+
+        <!-- Third Section -->
         <section class="message-card">
+
             <h2>Questions I can't stop asking</h2>
 
             <p>and after seeing that i was so in like shock,regret,realisation
@@ -162,15 +192,13 @@ and after all this happened i am questioning haalat glt the?
 pyar glt tha?pyar krne ka tarika glt tha?ya mai hi glt tha?
 kyuki mai just vaisa hi treatment expect kr rha tha jo mai
 de rha tha or jab vo mujhe nhi mila mera behaviour change
-hua and suddenly love was gone by her for me ,
-</p>
+hua and suddenly love was gone by her for me ,</p>
+
+            <p class="continuation">will continue later...</p>
+
         </section>
 
-
-                        <p class="continuation">will continue later...</p>
-
-
-
+        <!-- Footer -->
         <footer>
             L S N
         </footer>
@@ -179,3 +207,4 @@ hua and suddenly love was gone by her for me ,
 
 </body>
 </html>
+```
