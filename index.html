@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,85 +16,102 @@
 
         body {
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background: #111;
-            color: white;
+            color: #f5f5f5;
             font-family: Arial, sans-serif;
-            padding: 20px;
+            padding: 50px 20px;
         }
 
-        /* Login Page */
-        #loginPage {
-            text-align: center;
-        }
-
-        #loginPage h2 {
-            margin-bottom: 25px;
-            font-weight: normal;
-        }
-
-        input {
-            width: 250px;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            outline: none;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        button {
-            margin-top: 15px;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 6px;
-            background: white;
-            color: black;
-            font-size: 15px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #ddd;
-        }
-
-        #error {
-            color: #ff4d4d;
-            margin-top: 15px;
-            display: none;
-        }
-
-        /* Main Website */
         #mainPage {
-            display: none;
-            text-align: center;
-            max-width: 900px;
             width: 100%;
+            max-width: 750px;
+            margin: 0 auto;
         }
 
-        #mainPage h1 {
-            font-size: 45px;
-            font-weight: normal;
-            margin-bottom: 30px;
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        #mainPage p {
-            font-size: 20px;
-            line-height: 1.8;
-            color: #eee;
+        .header h1 {
+            font-size: 42px;
+            font-weight: 400;
+            letter-spacing: 5px;
+            margin-bottom: 12px;
         }
 
-        /* Mobile Responsive */
+        .header .subtitle {
+            color: #999;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #853c50;
+            margin: 25px auto 0;
+        }
+
+        .message-card {
+            background: #191919;
+            border: 1px solid #2b2b2b;
+            border-left: 3px solid #853c50;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .message-card h2 {
+            color: #c77c91;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .message-card p {
+            font-size: 17px;
+            line-height: 2;
+            color: #e2e2e2;
+            overflow-wrap: break-word;
+            white-space: pre-line;
+        }
+
+        .continuation {
+            color: #999 !important;
+            font-size: 14px !important;
+            margin-top: 22px;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-top: 40px;
+        }
+
         @media (max-width: 600px) {
-            #mainPage h1 {
-                font-size: 30px;
+            body {
+                padding: 35px 16px;
             }
 
-            #mainPage p {
-                font-size: 17px;
-                line-height: 1.7;
+            .header h1 {
+                font-size: 32px;
+                letter-spacing: 4px;
+            }
+
+            .message-card {
+                padding: 23px 20px;
+            }
+
+            .message-card p {
+                font-size: 16px;
+                line-height: 1.9;
             }
         }
     </style>
@@ -101,65 +119,44 @@
 
 <body>
 
-    <!-- PASSWORD PAGE -->
-    <div id="loginPage">
+    <main id="mainPage">
 
-        <h2>Enter Password</h2>
+        <header class="header">
+            <h1>12/10/26</h1>
+            <p class="subtitle">L S N</p>
+            <div class="divider"></div>
+        </header>
 
-        <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            onkeydown="if(event.key === 'Enter') checkPassword()"
-        >
+        <section class="message-card">
+            <h2>What I wanted to say</h2>
 
-        <br>
+            <p>tumne kha tha ki krish mai agar overethink krlu kbhi
+kbhi to tum mujhe overexplain nhi kr skte maine burgers
+niks me vhi kiya saturday ko and agar aj mujhe jrurat
+thi us explanation ki to krish mai 4 mahine se sirf tumhe
+yhi prove kr rhi hu ki mai loyal hu, trust me, chlo hum
+to the hi raavan apko ram mil jae</p>
+        </section>
 
-        <button onclick="checkPassword()">
-            Enter
-        </button>
+        <section class="message-card">
+            <h2>And then, today...</h2>
 
-        <p id="error">Wrong password.</p>
+            <p>i love you and i really thought today too that mai nhi
+reh skta uske bina vo bhi nhi reh paegi and after just
+2 min i get to see, she followed every guy whom she
+unfollowed when i said ki i don't believe in naam ke
+bhai bhen and she said ok i got you its enough and
+after seeing this,</p>
 
-    </div>
+            <p class="continuation">will continue later...</p>
+        </section>
 
-    <!-- MAIN WEBSITE -->
-    <div id="mainPage">
+        <footer>
+            L S N
+        </footer>
 
-        <h1>12/10/26</h1>
-
-        <p>
-            tumne kha tha ki krish mai agar overethink krlu kbhi
-            kbhi to tum mujhe overexplain nhi kr skte maine burgers
-            niks me vhi kiya saturday ko and agar aj mujhe jrurat
-            thi us explanation ki to krish mai 4 mahine se sirf tumhe
-            yhi prove kr rhi hu ki mai loyal hu, trust me, chlo hum
-            to the hi raavan apko ram mil jae
-        </p>
-
-    </div>
-
-    <script>
-        function checkPassword() {
-
-            const password = document.getElementById("password").value;
-
-            // CHANGE YOUR PASSWORD HERE
-            const correctPassword = "0028";
-
-            if (password === correctPassword) {
-
-                document.getElementById("loginPage").style.display = "none";
-
-                document.getElementById("mainPage").style.display = "block";
-
-            } else {
-
-                document.getElementById("error").style.display = "block";
-
-            }
-        }
-    </script>
+    </main>
 
 </body>
 </html>
+```
