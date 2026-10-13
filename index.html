@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,19 +19,19 @@
             background: #111;
             color: #f5f5f5;
             font-family: Arial, sans-serif;
-            padding: 50px 20px;
+            padding: 50px 25px;
         }
 
         #mainPage {
             width: 100%;
-            max-width: 750px;
+            max-width: 1250px;
             margin: 0 auto;
         }
 
         /* Main Heading */
         .header {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 60px;
         }
 
         .header h1 {
@@ -59,22 +59,53 @@
             margin: 25px auto;
         }
 
-        /* Big Date */
-        .written-date {
+        /* Three-column timeline */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 45px 25px;
+            align-items: start;
+        }
+
+        .timeline-entry {
+            min-width: 0;
+        }
+
+        /* Date styling */
+        .timeline-date {
             color: #c77c91;
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 500;
-            letter-spacing: 5px;
-            margin-top: 25px;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        /* Left column */
+        .timeline-entry:nth-child(3n + 1) {
+            grid-column: 1;
+        }
+
+        .timeline-entry:nth-child(3n + 1) .timeline-date {
+            text-align: left;
+        }
+
+        /* Middle column */
+        .timeline-entry:nth-child(3n + 2) {
+            grid-column: 2;
+        }
+
+        .timeline-entry:nth-child(3n + 2) .timeline-date {
             text-align: center;
         }
 
-        .date-label {
-            color: #888;
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-top: 10px;
+        /* Right column */
+        .timeline-entry:nth-child(3n) {
+            grid-column: 3;
+        }
+
+        .timeline-entry:nth-child(3n) .timeline-date {
+            text-align: right;
         }
 
         /* Message Cards */
@@ -83,9 +114,9 @@
             border: 1px solid #2b2b2b;
             border-left: 3px solid #853c50;
             border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 25px;
+            padding: 25px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            min-width: 0;
         }
 
         .message-card h2 {
@@ -95,13 +126,14 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 20px;
+            line-height: 1.7;
         }
 
         .message-card p {
-            font-size: 17px;
+            font-size: 16px;
             line-height: 2;
             color: #e2e2e2;
-            overflow-wrap: break-word;
+            overflow-wrap: anywhere;
             white-space: pre-line;
         }
 
@@ -119,13 +151,43 @@
             color: #666;
             font-size: 12px;
             letter-spacing: 3px;
-            margin-top: 40px;
+            margin-top: 70px;
+            padding-bottom: 20px;
         }
 
-        /* Mobile Responsive */
+        /* Tablet */
+        @media (max-width: 900px) {
+            #mainPage {
+                max-width: 750px;
+            }
+
+            .timeline {
+                gap: 35px 16px;
+            }
+
+            .timeline-date {
+                font-size: 23px;
+                letter-spacing: 1px;
+            }
+
+            .message-card {
+                padding: 18px;
+            }
+
+            .message-card p {
+                font-size: 15px;
+                line-height: 1.9;
+            }
+        }
+
+        /* Mobile */
         @media (max-width: 600px) {
             body {
                 padding: 35px 16px;
+            }
+
+            .header {
+                margin-bottom: 45px;
             }
 
             .header h1 {
@@ -134,9 +196,23 @@
                 line-height: 1.5;
             }
 
-            .written-date {
-                font-size: 27px;
-                letter-spacing: 3px;
+            .timeline {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .timeline-entry:nth-child(n) {
+                grid-column: 1;
+            }
+
+            .timeline-entry:nth-child(n) .timeline-date {
+                text-align: left;
+            }
+
+            .timeline-date {
+                font-size: 28px;
+                letter-spacing: 2px;
+                margin-bottom: 15px;
             }
 
             .message-card {
@@ -146,6 +222,10 @@
             .message-card p {
                 font-size: 16px;
                 line-height: 1.9;
+            }
+
+            footer {
+                margin-top: 50px;
             }
         }
     </style>
@@ -167,43 +247,57 @@
 
             <div class="divider"></div>
 
-            <p class="written-date">12/10/26</p>
         </header>
 
-        <!-- First Section -->
-        <section class="message-card">
+        <!-- Date-based timeline -->
+        <div class="timeline">
 
-            <h2>What I wanted to say</h2>
+            <!-- 12/10/26: LEFT -->
+            <article class="timeline-entry">
 
-            <p>tumne kha tha ki krish mai agar overethink krlu kbhi
+                <h2 class="timeline-date">12/10/26</h2>
+
+                <section class="message-card">
+
+                    <h2>What I wanted to say</h2>
+
+                    <p>tumne kha tha ki krish mai agar overethink krlu kbhi
 kbhi to tum mujhe overexplain nhi kr skte maine burgers
 niks me vhi kiya saturday ko and agar aj mujhe jrurat
 thi us explanation ki to krish mai 4 mahine se sirf tumhe
 yhi prove kr rhi hu ki mai loyal hu, trust me, chlo hum
 to the hi raavan apko ram mil jae</p>
 
-        </section>
+                </section>
 
-        <!-- Second Section -->
-        <section class="message-card">
+            </article>
 
-            <h2>And then, today...</h2>
+            <!-- 13/10/26: MIDDLE -->
+            <article class="timeline-entry">
 
-            <p>i love you and i really thought today too that mai nhi
+                <section class="message-card">
+
+                    <h2>And then, today...</h2>
+
+                    <p>i love you and i really thought today too that mai nhi
 reh skta uske bina vo bhi nhi reh paegi and after just
 2 min i get to see, she followed every guy whom she
 unfollowed when i said ki i don't believe in naam ke
 bhai bhen and she said ok i got you its enough and
 after seeing this,</p>
 
-        </section>
+                </section>
 
-        <!-- Third Section -->
-        <section class="message-card">
+            </article>
 
-            <h2>Questions I can't stop asking</h2>
+            <!-- 14/10/26: RIGHT -->
+            <article class="timeline-entry">
 
-            <p>and after seeing that i was so in like shock,regret,realisation
+                <section class="message-card">
+
+                    <h2>Questions I can't stop asking</h2>
+
+                    <p>and after seeing that i was so in like shock,regret,realisation
 shyd i was never enough for her ,agr maine use vo sab diya
 hota to shyd usse jrurat hi nhi pdti in chicho ko insaan
 thodi glt ya shi hota h ,haalat situation glt ya shi hote h ,
@@ -216,9 +310,57 @@ kyuki mai just vaisa hi treatment expect kr rha tha jo mai
 de rha tha or jab vo mujhe nhi mila mera behaviour change
 hua and suddenly love was gone by her for me ,</p>
 
-            <p class="continuation">will continue later...</p>
+                    <p class="continuation">will continue later...</p>
 
-        </section>
+                </section>
+
+            </article>
+
+            <!-- 13/10/26: NEW ENTRY -->
+            <article class="timeline-entry">
+
+                <h2 class="timeline-date">13/10/26</h2>
+
+                <section class="message-card">
+
+                    <h2>So many questions but answers are of none</h2>
+
+                    <p>I am just void of myself now, khali ho chuka hu andar se,
+ek naye seher aa to gya hu, tumhe kaise peeche chor du,
+bilkul man nhi lg rha.
+
+Whoever reading this, if you have some similar situation
+before you make the decision to leave, just remember all
+the moments you were happy together spending together,
+all the promises made, and why did you begin this.
+
+And remember this always: if the reason for your breakup
+or getting apart was not cheating or he/she slapped you,
+you should never let them go.
+
+There will be a void.
+
+And must be thinking ki why do you want to leave her?
+Firstly, i don't want to, kbhi nhi chahta tha. But my whole
+point was to make her happy, make her life easy, and if i
+am not able to do this, i am making her cry every day,
+then am i the right person for her?</p>
+
+                </section>
+
+            </article>
+
+            <!--
+                FUTURE ENTRIES:
+
+                Copy an entire article for each new date.
+                The position repeats:
+                15/10/26 = LEFT
+                16/10/26 = MIDDLE
+                17/10/26 = RIGHT
+            -->
+
+        </div>
 
         <!-- Footer -->
         <footer>
